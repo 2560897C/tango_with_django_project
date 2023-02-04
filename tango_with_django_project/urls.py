@@ -19,12 +19,13 @@ from django.urls import include
 from rango import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import url
 
 
 
 urlpatterns = [
-    path('', views.index,name= 'index'),
-    path('rango', include('rango.urls')), 
+    path('', views.homepage, name= 'index'),
+    path('rango', include('rango.urls')),
     #above maps any urls starting with rango/ to be handled by rango
     path('admin/', admin.site.urls),
     

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+	<head> 
+		<title>chapter 3 exercise</title>
+	</head>
+
+	<body>
+		<h1>Rango says...</h1>
+		<div>
+			here is the about page<br/>
+			This tutorial has been put together by Luke Campbell
+
+		<p>
+		<img src="{{ MEDIA_URL }}cat.jpeg" class="cat" 
+				alt ="Picture of cat"/>
+		<br/><br/>
+		<img src="{% static "images/rango.jpeg" %}" class = "cat"
+				alt="Picture of Rango"/>
+		
+		</div>
+	</body>
+</html>
+			
