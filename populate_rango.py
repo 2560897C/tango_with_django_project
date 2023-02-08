@@ -7,42 +7,58 @@ django.setup()
 from rango.models import Category, Page
 
 def populate():
+    
     python_pages = [
         {'title' : 'Official Python Tutorial',
+         'views' : 3, 
          'url' : 'http://docs.python.org/3/tutorial/'},
+        
         {'title' : 'How to Think like a Computer Scientist',
+         'views' : 10,
          'url' : 'http://www.greenteapress.com/thinkpython/'},
+        
         {'title' : 'Learn Python in 10 Minutes',
+         'views' : 12,
          'url':'http://www.korokithakis.net/tutorials/python/'}]
+    
     django_pages = [
         
         {'title':'Official Django Tutorial',
+         'views' : 9,
          'url':'https://docs.djangoproject.com/en/2.1/intro/tutorial01/'},
+        
         {'title':'Django Rocks',
+         'views' : 54,
          'url':'http://www.djangorocks.com/'},
+        
         {'title':'How to Tango with Django',
+         'views' : 98,
          'url':'http://www.tangowithdjango.com/'} ]
+    
     other_pages = [
 
         {'title':'Bottle',
+         'views' : 8,
          'url':'http://bottlepy.org/docs/dev/'},
+        
         {'title':'Flask',
+         'views' : 18,
          'url':'http://flask.pocoo.org'} ]
     
     cats = {'Python': {
-                "views": 0,
-                "likes": 0,
-                'pages': python_pages},
+                "views": 8,
+                "likes": 13,
+                "pages": python_pages},
             
             'Django': {
-                "views": 0,
-                "likes": 0,
-                'pages': django_pages},
+                "views": 14,
+                "likes": 5,
+                "pages": django_pages},
             
             'Other Frameworks': {
-                "views": 0,
-                "likes": 0,
-                'pages': other_pages} }
+                "views": 10,
+                "likes": 2,
+                "pages": other_pages} }
 
     for cat, cat_data in cats.items():
         c = add_cat(cat, cat_data['views'], cat_data['likes'])
@@ -59,6 +75,7 @@ def add_page(cat, title, url, views=0):
     p.views=views
     p.save()
     return p
+
 
 def add_cat(name, views, likes):
     print(name, views)

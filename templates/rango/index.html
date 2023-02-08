@@ -17,10 +17,19 @@
 		</div>
 
 		<div>
-		{% if categories %}
-			<ul>
-			{% for category in categories %}
-				<li>{{ category.name }}</li>
+			<h3> Most Liked Categories</h3>
+			<p>
+
+				{% if categories %}
+					<div class='list-group'>
+						{% for category in categories %}
+							<div class='list-group-item'
+							
+				><li>
+					<a href="/rango/category/{{ category.slug }}/">{{ category.name }}</a>
+						<span class="bubble">{{ category.likes }}</span>
+					</div>
+				</li>
 			{% endfor %}
 			</ul>
 		{% else %}
@@ -29,9 +38,36 @@
 		</div>
 
 		<div>
+			<h4> Most Viewed Pages</h4>
+			<p>
+				{% if pages %}
+					<div class='list-group'>
+					
+						<ul>
+							{% for page in pages %}
+								<div class='list-group-item'>
+								
+									<li>
+										<a href="/rango/page/{{ page.url }}/">{{ page.title }}</a>
+										<span class='bubble'>{{ page.views }}</span>
+									</li>
+
+												
+							{% endfor %}
+						</ul>
+					</div>
+				{% else %}
+					<strong>There are no categories present.</strong>
+				{% endif %}
+			</p>
+		</div>
+
+				
+
+		<div>
 			<a href="/rango/about">About</a><br />
 			<img src="{% static "images/rango.jpeg" %} class = "rango" 
-				alt= "Picture of Rango" />
+				alt="Picture of Rango" />
 		</div>
 	</body>
 </html>
